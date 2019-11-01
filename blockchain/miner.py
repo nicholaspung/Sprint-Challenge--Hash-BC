@@ -71,6 +71,7 @@ if __name__ == '__main__':
         # Get the last proof from the server
         r = requests.get(url=node + "/last_proof")
         data = r.json()
+        print(data.get('proof'))
         new_proof = proof_of_work(data.get('proof'))
 
         post_data = {"proof": new_proof,
